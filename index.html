@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            background-color: rgb(28, 28, 34);
+        }
+        body{
+            width: 90vw;
+        }
+        #s1{
+            color: white;
+            float: left;
+            margin-top: 7px;
+        }
+        #Vue{
+            color: white;
+            float: left;
+            margin-left: 15px;
+        }
+        #Lamp {
+            color: rgb(0, 190, 190);
+            float: left;
+        }
+        .a{
+            position: relative;
+            top: 2vh;
+            left: 6vw;
+            z-index: 10;
+        }
+        #lamp{
+            position: absolute;
+            width: 20vw;
+            bottom: 56vh;
+            left: 20vw;
+            top: -8px;
+        }
+        #light{
+            height: 60vh;
+            width: 35vw;
+            position: relative;
+            top: 200px;
+            right: 13px;
+        }
+        #list{
+            color: white;
+        }
+        #navbar{
+            position: absolute;
+            right: 5vw;
+            top: 20px;
+            width: 600px;
+            font-size: 18px;
+        }
+        #list{
+            list-style: none;
+            display: flex;
+            margin-left: 10px;
+        }
+        li{
+            margin: 20px;
+            cursor: pointer;
+        }
+        #switch{
+            width: 30px;
+            height: 15px;
+            background-color: gray;
+            position: relative;
+            top: 21px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #ball{
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            background-color: whitesmoke;
+            position: relative;
+        }
+        #desc{
+            width: 40vw;
+            color: white;
+            position: absolute;
+            top: 35vh;
+            left: 45vw;
+            font-size: 20px;
+        }
+        #button{
+            position: absolute;
+            left: 45vw;
+            top: 60vh;
+            width: 10vw;
+            height: 5vh;
+            background-color: green;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+        #hb{
+            height: 50vh;
+            position: fixed;
+            left: 10px;
+            top: 20px;
+        }
+       
+        #follow{
+            position: absolute;
+            right: 120px;
+            bottom: 100px;
+            color: white;
+            display: inline-block;
+            
+        }
+        .profile{
+            position: relative;
+            left: 1100px;
+            top: 170px;
+            color: aqua;
+            display: inline-block;
+        }
+        #calculator{
+            position: absolute;
+            right: 45vw;
+            bottom: 28vh;
+            color: chartreuse;
+            display: inline-block;
+        }
+        #PlanetProject{
+            position: absolute;
+            right: 45vw;
+            bottom: 24vh;
+            color: chartreuse;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="a"><i id="s1" class="fa-solid fa-bars"></i></h2> <h1 class="a" id="Vue">Vue</h1><h1 class="a" class="lamp" id="Lamp">Lamp</h1>
+    <img id="lamp" src="../photos/hanging light1.png" alt="">
+    <img id="light" style="display:none;" src="../photos/light illusion (2).png">
+    <div id="navbar">
+        <ul id="list">
+            <li>Latest</li>
+            <li>Modern</li>
+            <li>Contemporary</li>
+            <li>Affordable</li>
+            <div id="switch" onclick="toggle()">
+                <div id="ball"></div>
+            </div>
+        </ul>
+    </div>
+
+    <div id="desc">
+        <h1 id="head">Hii, Welcome to my web page <br>I am Vinay Kumar Bantubilli</h1>
+        <p>I'm java full stack developer </p>
+        <p style="color: aquamarine;">please toggle the button at top-right corner</p>
+    </div>
+    <input style="display: none;" id="button" type="submit" value="Check All Collections" onclick="profiles()">
+    <img id="hb" src="../photos/balls hanging.png" alt="">
+
+   <div id="profile" style="display: none;">
+   <p id="follow">@follow me on</p>
+    <a target="_blank" href="https://www.facebook.com/profile.php?id=100089888935337"><p class="profile">facebook</p></a><br>
+    <a target="_blank" href="https://www.instagram.com/vinay9bb/"><p class="profile">instagram</p></a><br>
+    <a target="_blank" href="https://www.linkedin.com/in/vinay-kumar-bantubilli-567296237/"><p class="profile">linkedIn</p></a>
+   </div>
+   
+   
+   <a target="_blank" id="calculator" href="https://vinay-kumar-bantubilli.github.io/calculator/"></a><br>
+   <a target="_blank" id="PlanetProject" href="https://vinay-kumar-bantubilli.github.io/PlanetProject/"></a>
+
+    <script>
+        var a = 0;
+        function toggle(){
+            a++;
+            if (a%2 == 1){
+                document.getElementById("ball").setAttribute("style","left:15px")
+                document.getElementById("switch").style.backgroundColor="green"
+                document.getElementById("light").style.display="block"
+                document.getElementById("button").style.display="block"
+            }
+            if (a%2 == 0){
+                document.getElementById("ball").setAttribute("style","left:0px")
+                document.getElementById("switch").style.backgroundColor="gray"
+                document.getElementById("light").style="display:none;"
+                document.getElementById("button").style.display="none"
+                document.getElementById("profile").style.display="none"
+                document.getElementById("calculator").style.display="none"
+                document.getElementById("PlanetProject").innerHTML=""
+            }
+        }
+
+        function profiles(){
+            document.getElementById("calculator").innerHTML="1. My calculator"
+            document.getElementById("profile").style.display="block"
+            document.getElementById("calculator").style.display="block"
+            document.getElementById("PlanetProject").innerHTML="2. Planet Project"
+        }
+    </script>
+</body>
+</html>
